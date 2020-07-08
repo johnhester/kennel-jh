@@ -6,5 +6,26 @@
         { "id": 4, "name": "Austin", "breed": "Great Dane" },
         { "id": 5, "name": "Pickles", "breed": "Beagle" },
         { "id": 5, "name": "Ollivander", "breed": "Great Dane" }
+    ],
+
+    "employees": [
+        {"id": 1, "name": "Brenda Long"},
+        {"id": 2, "name": "Roey Wiz"},
+        {"id": 3, "name": "Sage Klein"},
+        {"id": 4, "name": "Chad Jones"},
+        {"id": 5, "name": "Rob Mixon"},
+        {"id": 6, "name": "Brett Derrington"}
+    ],
+    
+    "locations": [
+        {"id": 1, "name": "Nashville North"},
+        {"id": 2, "name": "Nashville South"},
+        {"id": 3, "name": "Nashville East"},
+        {"id": 4, "name": "Nashville West"}
+    ],
+
+    "owners": [
+        {"id":1, "phoneNumber": "(615)555-5555", "name": "Bobby Baybay"},
+        {"id":2, "phoneNumber": "(615)123-4567", "name": "Dolly Parton"}
     ]
 }
