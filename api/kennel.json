@@ -2,6 +2,9 @@
     "animals": [
         { "id": 1, "name": "Doodles", "breed": "Poodle"},
         { "id": 2, "name": "Decker", "breed": "German Shepherd" },
-        { "id": 3, "name": "Esme", "breed": "Pitbull" }
+        { "id": 3, "name": "Esme", "breed": "Pitbull" },
+        { "id": 4, "name": "Austin", "breed": "Great Dane" },
+        { "id": 5, "name": "Pickles", "breed": "Beagle" },
+        { "id": 5, "name": "Ollivander", "breed": "Great Dane" }
     ]
 }
