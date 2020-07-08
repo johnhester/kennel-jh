@@ -5,7 +5,7 @@
         { "id": 3, "name": "Esme", "breed": "Pitbull" },
         { "id": 4, "name": "Austin", "breed": "Great Dane" },
         { "id": 5, "name": "Pickles", "breed": "Beagle" },
-        { "id": 5, "name": "Ollivander", "breed": "Great Dane" }
+        { "id": 6, "name": "Ollivander", "breed": "Great Dane" }
     ],
 
     "employees": [

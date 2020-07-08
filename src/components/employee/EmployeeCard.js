@@ -1,6 +1,7 @@
 import React from "react";
+// import "../animal/Animal.css"
 
-const EmployeeCard = () => {
+const EmployeeCard = props => {
   return (
     <div className="card">
       <div className="card-content">
@@ -8,10 +9,11 @@ const EmployeeCard = () => {
           <img src={require("./detective.png")} alt="My Employee" />
         </picture>
         <h3>
-          <span className="card-petname">Cedric</span>
+          <span className="card-petname">
+            {props.employee.name}
+          </span>
         </h3>
-        <p>Employee</p>
-        <p>Position: Dog Finder</p>
+        <p>Position: Dog Lover!</p>
       </div>
     </div>
   );
