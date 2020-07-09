@@ -13,6 +13,7 @@ const OwnerCard = props => {
           </span>
         </h3>
         <p>Owner</p>
+        <p>Contact: {props.owner.phoneNumber} </p>
       </div>
     </div>
   );

@@ -10,10 +10,10 @@ const AnimalCard = props => {
         </picture>
         <h3>
           Name: <span className="card-petname">
-            {props.animal.name}
+            {props.dog.name}
             </span>
         </h3>
-        <p>Breed: {props.animal.breed}</p>
+        <p>Breed: {props.dog.breed}</p>
       </div>
     </div>
   );

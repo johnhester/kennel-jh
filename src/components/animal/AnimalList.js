@@ -25,7 +25,7 @@ const AnimalList = () => {
   return (
     <div className="container-cards">
       {animals.map(animal => 
-        <AnimalCard key={animal.id} animal={animal} />)}
+        <AnimalCard key={animal.id} dog={animal} />)}
     </div>
   );
 };
