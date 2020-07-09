@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const LocationCard = props => {
   return (
@@ -13,6 +14,12 @@ const LocationCard = props => {
           </span>
         </h3>
         <p>Come see us!</p>
+        <button type="button" onClick={() => props.closeLocation(props.location.id)}>
+          Close Location
+        </button>
+        <Link to={`/locations/${props.locations.id}`}>
+          <button>Details</button>
+        </Link>
       </div>
     </div>
   );

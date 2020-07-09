@@ -14,6 +14,7 @@ const EmployeeCard = props => {
           </span>
         </h3>
         <p>Position: Dog Lover!</p>
+        <button type="button" onClick={() => props.fireEmployee(props.employee.id)}>Fire</button>
       </div>
     </div>
   );
