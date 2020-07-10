@@ -17,7 +17,7 @@ const LocationCard = props => {
         <button type="button" onClick={() => props.closeLocation(props.location.id)}>
           Close Location
         </button>
-        <Link to={`/locations/${props.locations.id}`}>
+        <Link to={`/locations/${props.location.id}`}>
           <button>Details</button>
         </Link>
       </div>
