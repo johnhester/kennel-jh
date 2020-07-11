@@ -36,6 +36,9 @@ strong {
 
 address {
   margin: 0 0 1.5em;
+  height: 100%;
+  width: auto;
+  background: no-repeat  url("./home/dogwindow.jpg");
 }
 
 img {

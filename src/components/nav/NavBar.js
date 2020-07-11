@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import "./NavBar.css";
 
 const NavBar = () => {
@@ -13,29 +13,59 @@ const NavBar = () => {
       <nav>
         <ul className="container">
             <li>
-                <Link className="nav-link" to="/">
-                Home
-                </Link>
+                <NavLink 
+                  activeClassName="nav-link" 
+                  exact to="/"
+                  activeStyle={{
+                    color: "cornsilk"
+                  }}
+                >
+                  Home
+                </NavLink>
             </li>
             <li>
-                <Link className="nav-link" to="/animals">
+              <NavLink 
+                activeClassName="nav-link" 
+                to="/animals"
+                activeStyle={{
+                  color: "cornsilk"
+                }}
+              >
                 Animals
-                </Link>
+              </NavLink>
             </li>
             <li>
-                <Link className="nav-link" to="/locations">
-                Locations
-                </Link>
+              <NavLink 
+                  activeClassName="nav-link" 
+                  to="/locations"
+                  activeStyle={{
+                    color: "cornsilk"
+                  }}
+                >
+                  Locations
+              </NavLink>
             </li>
             <li>
-                <Link className="nav-link" to="/employees">
-                    Employees
-                </Link>
+              <NavLink 
+                activeClassName="nav-link" 
+                to="/employees"
+                activeStyle={{
+                  color: "cornsilk"
+                }}
+              >
+                Employees
+              </NavLink>
             </li>
             <li>
-                <Link className="nav-link" to="/owners">
-                    Owners
-                </Link>
+              <NavLink 
+                activeClassName="nav-link" 
+                to="/owners"
+                activeStyle={{
+                  color: "cornsilk"
+                }}
+              >
+                Owners
+              </NavLink>
             </li>
         </ul>
       </nav>
@@ -43,4 +73,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default withRouter(NavBar);

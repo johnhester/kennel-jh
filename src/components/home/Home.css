@@ -1,0 +1,11 @@
+address {
+    margin: 2.5rem;
+}
+
+.home {
+    display: flex;
+    
+    height: 100%;
+    width: auto;
+}
+

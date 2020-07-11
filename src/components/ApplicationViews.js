@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom"
+import { Route, Redirect } from "react-router-dom"
 import React from "react"
 import Home from "./home/Home"
 import OwnerList from "./owner/OwnerList"
@@ -11,107 +11,134 @@ import EmployeeForm from "./employee/EmployeeForm"
 import LocationList from "./location/LocationList"
 import LocationForm from "./location/LocationForm"
 import LocationDetail from "./location/LocationDetail"
+import Login from "./auth/Login"
 
 const ApplicationViews = () => {
-  return (
-    <React.Fragment>
-        <Route
-            exact
-            path="/"
-            render={props => {
-            return <Home />;
-            }}
-        />
-        {/* Make sure you add the `exact` attribute here */}
-        <Route exact path="/animals" 
-            render={(props) => {
-            return <AnimalList {...props} />
-            }} 
-        />
 
-        {/*This is a new route to handle a URL with the following pattern:
-        http://localhost:3000/animals/1
+    // Check if credentials are in session storage returns true/false
+    const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
+    
+    return (
+        <React.Fragment>
 
-        It will not handle the following URL because the `(\d+)`
-        matches only numbers after the final slash in the URL
-        http://localhost:3000/animals/jack*/}
+            <Route
+                path="/login"
+                component={Login}
+            />
 
-        <Route path="/animals/:animalId(\d+)" 
-            render={(props) => {
-            // Pass the animalId to the AnimalDetailComponent
-                return (
-                    <AnimalDetail 
-                        animalId={parseInt(props.match.params.animalId)}     
-                        {...props}                
-                    />                       
-                )
-            }} 
-        />
+            <Route
+                exact
+                path="/"
+                render={props => {
+                return <Home />;
+                }}
+            />
+            {/* Make sure you add the `exact` attribute here */}
+            <Route exact path="/animals" 
+                render={props => {
+                    if (isAuthenticated()) {
+                    return <AnimalList {...props} />
+                    } else {
+                    return <Redirect to="/login" />
+                    }
+                }}                 
+            />
 
-        {/* new animal form! */}
+            {/*This is a new route to handle a URL with the following pattern:
+            http://localhost:3000/animals/1
 
-        <Route 
-            path="/animals/new" 
-            render={(props) => {
-            return <AnimalForm {...props} />
-        }} />
+            It will not handle the following URL because the `(\d+)`
+            matches only numbers after the final slash in the URL
+            http://localhost:3000/animals/jack*/}
 
-        {/* location routes  */}
+            <Route path="/animals/:animalId(\d+)" 
+                render={(props) => {
+                // Pass the animalId to the AnimalDetailComponent
+                    return (
+                        <AnimalDetail 
+                            animalId={parseInt(props.match.params.animalId)}     
+                            {...props}                
+                        />                       
+                    )
+                }} 
+            />
 
-        <Route 
-            exact path="/locations" 
-            render={(props) => {
-            return <LocationList {...props}/>
-            }} 
-        />
-        <Route path="/locations/:locationId(\d+)" 
-            render={(props) => {
-            // Pass the locationId to the locationDetail component
-                return (
-                    <LocationDetail 
-                        locationId={parseInt(props.match.params.locationId)}
-                        {...props}
-                    />
-                )
-            }} 
-        />
+            {/* new animal form! */}
 
-        <Route path="/locations/new" render={(props) => {
-        return <LocationForm {...props} />
-        }} />
+            <Route 
+                path="/animals/new" 
+                render={(props) => {
+                return <AnimalForm {...props} />
+            }} />
 
-    {/* Employee ROutes  */}
-        <Route
-            exact path="/employees"
-            render={props => {
-            return <EmployeeList {...props}/>;
-            }}
-        />
+            {/* location routes  */}
 
-        <Route path="/employees/new" 
-            render={(props) => {
-            return <EmployeeForm {...props} />
-            }} 
-        />
+            <Route 
+                exact path="/locations" 
+                render={(props) => {
+                    if(isAuthenticated()) {
+                        return <LocationList {...props} />
+                    } else {
+                        return <Redirect to="/login"/>
+                    }
+                }} 
+            />
+            <Route path="/locations/:locationId(\d+)" 
+                render={(props) => {
+                // Pass the locationId to the locationDetail component
+                    return (
+                        <LocationDetail 
+                            locationId={parseInt(props.match.params.locationId)}
+                            {...props}
+                        />
+                    )
+                }} 
+            />
 
-        {/* owner routes  */}
+            <Route path="/locations/new" render={(props) => {
+            return <LocationForm {...props} />
+            }} />
 
-        <Route
-            exact path="/owners"
-            render={props => {
-            return <OwnerList {...props} />;
-            }}
-        />
+        {/* Employee ROutes  */}
+            <Route
+                exact path="/employees"
+                render={props => {
+                    if (isAuthenticated()) {
+                        return <EmployeeList {...props} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
+                }}
+            />
 
-        <Route 
-            path="/owners/new"
-            render={(props) => {
-            return <OwnerForm {...props} />
-            }}
-        />
+            <Route path="/employees/new" 
+                render={(props) => {
+                return <EmployeeForm {...props} />
+                }} 
+            />
 
-    </React.Fragment>
-  );
+            {/* owner routes  */}
+
+            <Route
+                exact path="/owners"
+                render={props => {
+                    if(isAuthenticated()) {
+                        return <OwnerList {...props} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
+                }}
+            />
+
+            <Route 
+                path="/owners/new"
+                render={(props) => {
+                return <OwnerForm {...props} />
+                }}
+            />
+
+        </React.Fragment>
+    );
 };
 
 export default ApplicationViews;
