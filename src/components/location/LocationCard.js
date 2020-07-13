@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const LocationCard = props => {
+
+  
   return (
     <div className="card">
       <div className="card-content">
@@ -10,16 +12,19 @@ const LocationCard = props => {
         </picture>
         <h3>
           <span className="card-petname">
-            {props.location.name}
+            {props.locations.name}
           </span>
         </h3>
-        <p>Come see us!</p>
-        <button type="button" onClick={() => props.closeLocation(props.location.id)}>
+        <p>{props.locations.address}</p>
+        <button type="button" onClick={() => props.closeLocation(props.locations.id)}>
           Close Location
         </button>
-        <Link to={`/locations/${props.location.id}`}>
+        <Link to={`/locations/${props.locations.id}`}>
           <button>Details</button>
         </Link>
+        <button type="button" onClick={() => {props.history.push(`/locations/${props.locations.id}/edit`)}}>
+          Edit
+        </button>
       </div>
     </div>
   );

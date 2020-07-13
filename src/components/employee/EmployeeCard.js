@@ -15,9 +15,10 @@ const EmployeeCard = props => {
         </h3>
         <p>Position: {props.employee.position}</p>
         <button type="button" onClick={() => props.fireEmployee(props.employee.id)}>Fire</button>
+        <button type="button" onClick={() => props.history.push(`/employees/${props.employee.id}/edit`)}>Edit</button>
       </div>
     </div>
   );
 };
 
-export default EmployeeCard;
+export default EmployeeCard; 

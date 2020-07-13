@@ -14,7 +14,18 @@ const OwnerCard = props => {
         </h3>
         <p>Owner</p>
         <p>Contact: {props.owner.phoneNumber} </p>
-        <button type="button" onClick={() => props.removeOwner(props.owner.id)}>Remove Owner</button>
+        <button 
+          type="button"  
+          onClick={() => props.removeOwner(props.owner.id)}
+        >
+          Owner Resigned
+        </button>
+        <button 
+          type="button"
+          onClick={() => props.history.push(`/owners/${props.owner.id}/edit`)}
+        >
+          Edit
+        </button>
       </div>
     </div>
   );

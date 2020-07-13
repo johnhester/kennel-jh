@@ -43,7 +43,8 @@ const EmployeeList = props => {
           <EmployeeCard 
             key={employee.id} 
             employee={employee}
-            fireEmployee={deleteEmployee}  
+            fireEmployee={deleteEmployee}
+            {...props}  
           />
         )}
       </div>

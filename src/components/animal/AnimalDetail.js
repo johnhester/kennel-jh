@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom"
 import AnimalManager from '../../modules/AnimalManager';
 import './AnimalDetail.css'
 
@@ -34,6 +35,9 @@ const AnimalDetail = props => {
         </picture>
         <h3>Name: <span style={{ color: 'darkslategrey' }}>{animal.name}</span></h3>
         <p>Breed: {animal.breed}</p>
+        <Link to={`/animals/${props.animalId}/edit`}>
+          <button>Edit</button>
+        </Link>
         <button type="button" disabled={isLoading} onClick={handleDelete}>
           Discharge
         </button>
