@@ -3,32 +3,44 @@
     {
       "id": 2,
       "name": "Decker",
-      "breed": "German Shepherd"
+      "breed": "German Shepherd",
+      "employeeId": 4
     },
     {
       "id": 3,
       "name": "Esme",
-      "breed": "Pitbull"
+      "breed": "Pitbull",
+      "employeeId": 1
     },
     {
       "id": 5,
       "name": "Pickles",
-      "breed": "Beagle"
+      "breed": "Beagle",
+      "employeeId": 2
     },
     {
       "id": 6,
       "name": "Ollivander",
-      "breed": "Great Derp"
+      "breed": "Great Derp",
+      "employeeId": 3
     },
     {
       "name": "Bjorn",
       "breed": "Husky",
+      "employeeId": 1,
       "id": 7
     },
     {
       "name": "Beanie ",
       "breed": "Dachshund",
+      "employeeId": 1,
       "id": 8
+    },
+    {
+      "name": "Puppo",
+      "breed": "A Good One",
+      "employeeId": 1,
+      "id": 9
     }
   ],
   "employees": [

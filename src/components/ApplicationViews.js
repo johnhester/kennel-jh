@@ -11,6 +11,7 @@ import AnimalEditForm from "./animal/AnimalEditForm"
 import EmployeeList from "./employee/EmployeeList"
 import EmployeeForm from "./employee/EmployeeForm"
 import EmployeeEditForm from "./employee/EmployeeEditForm"
+import EmployeeWithAnimals from "./employee/EmployeeWithAnimals"
 import LocationList from "./location/LocationList"
 import LocationForm from "./location/LocationForm"
 import LocationDetail from "./location/LocationDetail"
@@ -155,6 +156,13 @@ const ApplicationViews = () => {
                     }
                 }} 
 
+            />
+
+            <Route 
+                exact path="/employees/:employeeId(\d+)/details" 
+                render={(props) => {
+                return <EmployeeWithAnimals {...props} />
+                }} 
             />
 
             {/* owner routes  */}
