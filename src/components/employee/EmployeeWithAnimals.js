@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import EmployeeManager from '../../modules/EmployeeManager'
+import AnimalManager from '../../modules/AnimalManager'
 import AnimalCard from '../animal/AnimalCard'
 
 const EmployeeWithAnimals = props => {
@@ -10,24 +11,41 @@ const EmployeeWithAnimals = props => {
         //got here now make call to get employee with animal
         EmployeeManager.getWithAnimals(props.match.params.employeeId)
             .then(APIResult => {
-                console.log(APIResult)
                 setEmployee(APIResult)
                 setAnimals(APIResult.animals)
             })
-    },[props.match.params.employeeId])
+    },[props.match.params.employeeId, animals])
 
-    console.log('employee animals', animals)
+    const deleteAnimal = id => {
+        AnimalManager.delete(id)
+            .then(EmployeeManager.getWithAnimals(props.match.params.employeeId)
+                    .then(APIResult => {
+                        setEmployee(APIResult)
+                        setAnimals(APIResult.animals)
+                    })
+            );
+    };
 
     return (
         <div className="card">
-            <p>Employee: {employee.name}</p>
-            {animals.map(animal =>
-                <AnimalCard
-                    key={animal.id}
-                    animal={animal}
-                    {...props}
-                />
-            )}
+             <div className="card-content">
+                <h3>
+                <span className="card-petname">
+                    {employee.name}
+                </span>
+                </h3>
+                <p><strong>Position: {employee.position}</strong></p>
+
+                <p>{employee.name}'s buddies:</p>
+                {animals.map(animal =>
+                    <AnimalCard
+                        key={animal.id}
+                        animal={animal}
+                        deleteAnimal={deleteAnimal}
+                        {...props}
+                    />
+                )}
+            </div>
         </div>
     )
 }

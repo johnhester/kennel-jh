@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom"
 import AnimalManager from '../../modules/AnimalManager';
+// import EmployeeManager from '../../modules/EmployeeManager'
 import './AnimalDetail.css'
 
 const AnimalDetail = props => {
-  const [animal, setAnimal] = useState({ name: "", breed: "" });
+  const [animal, setAnimal] = useState({ name: "", breed: "",employeeId:"" });
+  // const [employee, setEmployee] = useState({ name: "" })
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -13,10 +15,22 @@ const AnimalDetail = props => {
       .then(animal => {
         setAnimal({
           name: animal.name,
-          breed: animal.breed
+          breed: animal.breed,
+          handler: animal.employeeId
         });
         setIsLoading(false)
       });
+
+    // EmployeeManager.get(animal.employeeId)
+    //   .then(employee => {
+
+    //     console.log(employee)
+    //     setEmployee({
+          
+    //       name: employee.name 
+    //     })
+    //   })
+
   }, [props.animalId]);
 
   const handleDelete = () => {
@@ -27,6 +41,14 @@ const AnimalDetail = props => {
     );
   };
 
+  // const getHandler = (id) => {
+  //   EmployeeManager.get(id)
+  //     .then(item => {
+  //       console.log(item.name)
+  //       return item.name
+  //     })
+  // }
+
   return (
     <div className="card">
       <div className="card-content">
@@ -35,6 +57,7 @@ const AnimalDetail = props => {
         </picture>
         <h3>Name: <span style={{ color: 'darkslategrey' }}>{animal.name}</span></h3>
         <p>Breed: {animal.breed}</p>
+        <p>Handler:{animal.handler}</p>
         <Link to={`/animals/${props.animalId}/edit`}>
           <button>Edit</button>
         </Link>

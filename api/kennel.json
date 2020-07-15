@@ -35,56 +35,51 @@
       "breed": "Dachshund",
       "employeeId": 1,
       "id": 8
-    },
-    {
-      "name": "Puppo",
-      "breed": "A Good One",
-      "employeeId": 1,
-      "id": 9
     }
   ],
   "employees": [
     {
       "id": 1,
       "name": "Brenda Long",
-      "position": "Dog Lover!"
+      "position": "Dog Lover!",
+      "locationId": 1
     },
     {
       "id": 2,
       "name": "Roey Wiz",
-      "position": "Fish Fanatic!"
+      "position": "Fish Fanatic!",
+      "locationId": 1
     },
     {
       "id": 3,
       "name": "Sage Klein",
-      "position": "Groomer!"
+      "position": "Groomer!",
+      "locationId": 1
     },
     {
       "id": 4,
       "name": "Chad Jones",
-      "position": "Reptile Wrangler!"
+      "position": "Reptile Wrangler!",
+      "locationId": 1
     },
     {
       "id": 5,
       "name": "Rob Mixon",
-      "position": "All about some cats!"
+      "position": "All about some cats!",
+      "locationId": 1
     },
     {
       "id": 6,
       "name": "Brett Derrington",
-      "position": "Bird Bro!"
+      "position": "Bird Bro!",
+      "locationId": 1
     }
   ],
   "locations": [
     {
       "id": 1,
       "name": "Nashville North",
-      "address": "blaaah"
-    },
-    {
-      "id": 4,
-      "name": "Nashville West",
-      "address": "12354 Butt Lane"
+      "address": "500 Puppy Way"
     },
     {
       "id": 5,

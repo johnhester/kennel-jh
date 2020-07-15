@@ -22,7 +22,7 @@ const AnimalCard = props => {
         <button type="button" onClick={() => props.history.push(`/animals/${props.animal.id}/edit`)}>
           Edit
         </button>
-      </div>
+      </div> 
     </div>
   );
 };
