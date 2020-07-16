@@ -49,7 +49,7 @@ const AnimalEditForm = props => {
           <div className="formgrid">
             <input
               type="text"
-              required
+              required 
               className="form-control"
               onChange={handleFieldChange}
               id="name"

@@ -3,7 +3,7 @@ import LocationManager from '../../modules/LocationManager';
 import './LocationForm.css'
 
 const LocationForm = props => {
-  const [location, setLocation] = useState({ name: ""});
+  const [location, setLocation] = useState({ name: "", address: ""});
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
@@ -40,6 +40,16 @@ const LocationForm = props => {
             />
             <label htmlFor="name">
                 Name
+            </label>
+            <input
+              type="text"
+              required
+              onChange={handleFieldChange}
+              id="address"
+              placeholder="Addresss"
+            />
+            <label htmlFor="address">
+                Address
             </label>
           </div>
           <div className="alignRight">

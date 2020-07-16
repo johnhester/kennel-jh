@@ -3,7 +3,7 @@ import LocationManager from "../../modules/LocationManager"
 import "../animal/AnimalForm.css"
 
 const LocationEditForm = props => {
-  const [location, setLocation] = useState({ name: "", address: "" });
+  const [location, setLocation] = useState({ name: "", address: ""});
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
@@ -22,7 +22,7 @@ const LocationEditForm = props => {
       name: location.name,
       address: location.address
     };
-
+ 
     LocationManager.update(editedLocation)
       .then(() => props.history.push("/locations"))
   }

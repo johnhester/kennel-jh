@@ -5,7 +5,7 @@ const EmployeeCard = props => {
   return (
     <div className="card">
       <div className="card-content">
-        <picture>
+        <picture> 
           <img src={require("./detective.png")} alt="My Employee" />
         </picture>
         <h3>

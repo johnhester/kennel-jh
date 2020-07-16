@@ -10,26 +10,29 @@ const Login = props => {
     setCredentials(stateToChange);
   };
 
+
   const handleLogin = (e) => { 
-    e.preventDefault();
+    e.preventDefault(); 
     /*
         For now, just store the email and password that
         the customer enters into session storage.
         ...Let's just trust the user... That's a good idea, right????
     */
-    if (credentials.remember === 'on') {
-      localStorage.setItem(
-        "credentials",
-        JSON.stringify(credentials)
-      )
-      props.history.push("")
-    } else {
-      sessionStorage.setItem(
-        "credentials",
-        JSON.stringify(credentials)
-      );
-      props.history.push("");
-    }
+    props.setUser(credentials)
+      
+    // if (credentials.remember === 'on') {
+    //   localStorage.setItem(
+    //     "credentials",
+    //     JSON.stringify(credentials)
+    //   )
+    //   props.history.push("")
+    // } else {
+    //   sessionStorage.setItem(
+    //     "credentials",
+    //     JSON.stringify(credentials)
+    //   );
+    //   props.history.push("");
+    // }
   }
 
   return (

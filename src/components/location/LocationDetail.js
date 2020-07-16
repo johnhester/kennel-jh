@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import LocationManager from '../../modules/LocationManager';
 import './LocationDetail.css'
+import LocationWithEmployees from './LocationWithEmployees'
 
 const LocationDetail = props => {
   const [location, setLocation] = useState({ name: "", address: ""});
@@ -27,22 +28,25 @@ const LocationDetail = props => {
   }
 
   return (
-    <div className="card">
-      <div className="card-content">
-        <picture>
-          <img src={require('./daSpot.png')} alt="location" />
-        </picture>
-        <h3>Name: <span style={{ color: 'darkslategrey' }}>{location.name}</span></h3>
-        <p>{location.address}</p>
-        <Link to={`/locations/${props.locationId}/edit`}>
-          <button>Edit</button>
-        </Link>
+    <>
+      <div className="card">
+        <div className="card-content">
+          <picture>
+            <img src={require('./daSpot.png')} alt="location" />
+          </picture>
+          <h3>Name: <span style={{ color: 'darkslategrey' }}>{location.name}</span></h3>
+          <p>{location.address}</p>
+          <Link to={`/locations/${props.locationId}/edit`}>
+            <button>Edit</button>
+          </Link>
 
-        <button type="button" disabled={isLoading} onClick={handleDelete}>
-          Close
-        </button>
+          <button type="button" disabled={isLoading} onClick={handleDelete}>
+            Close
+          </button>
+        </div>
       </div>
-    </div>
+      <LocationWithEmployees {...props} />
+    </>
   );
 }
 
